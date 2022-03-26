@@ -6,13 +6,16 @@ Technical stack
 - Redux
 - Typescript (optional, but would be a big advantage)
 NOTE
+
 You will need a server for this kind of app, so use json-server for API requests.
 ( Also you can use localStorage, but be aware of initializing data on the first run )
 If you know the backend part and have experience with databases - just use it to build your
 own server instead of a JSON Server.
+
 Actual task
 We need to build a product list web app. The goal is to simulate a shop app.
 There are two primary views: the product list view and the product view.
+
 Products List View:
 On the list view, I can add products by clicking on the add button(after that modal window
 should occur with different inputs which allows me to set product details, also inside modal
@@ -22,6 +25,7 @@ product - I can either confirm or cancel the current action). You shouldn`t be a
 empty product without setting data for him.
 The list view should always sort alphabetically first, and then by count. Also I can select how
 products should be sorted from the dropdown menu.
+
 Product View:
 On the product view, I can see all of the details of the product. After pressing the edit
 button I can see the modal with different inputs which allows me to change product details.
@@ -37,6 +41,7 @@ implementing the next feature, choose refactoring because we want to see how you
 work looks.
 We want to see clear, correct code that uses the right data structures and patterns, and we
 want to see your style.
+
 Models
 Product
 {
@@ -51,6 +56,7 @@ Product
 "weight": "200g",
 "comments": ["CommentModel", "CommentModel"]
 }
+
 Comment:
 {
 "id": 3,
