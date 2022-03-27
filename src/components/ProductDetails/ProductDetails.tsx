@@ -38,7 +38,7 @@ export const ProductDetails: React.FC<Props> = ({ selectedProductId }) => {
   useEffect(() => {
     setIsLoading(true);
     fetchProduct();
-  }, [selectedProductId]);
+  }, [selectedProductId, ]);
 
   const onProductDelete = async (id: number) => {
     setIsLoading(true);
@@ -49,31 +49,24 @@ export const ProductDetails: React.FC<Props> = ({ selectedProductId }) => {
   const onCommentDelete = async (id: number) => {
     setIsLoading(true);
     await deleteComment(id);
+    updateComments();
     setIsLoading(false);
   };
 
   const onCommentAdd = useCallback(async (id: number, productId: number, description: string, date: string) => {
     await addComment(id, productId, description, date);
+    updateComments();
   }, [selectedProductId]);
 
   return loading ? (
     <Loader />
   ) : (
-    <div className="PostDetails">
+    <div className="ProductDetails">
       <h2>Product details:</h2>
 
-      <section className="PostDetails__post">
-        <p>{product?.name}</p>
-        {/* <button
-          type="button"
-          className="PostDetails__remove-button button"
-          onClick={() => onProductDelete(product?.id)}
-        >
-          X
-        </button> */}
-      </section>
+      <p>{product?.name}</p>
 
-      <section className="PostDetails__comments">
+      <section className="ProductDetails__comments">
         <>
           <button
             type="button"
@@ -87,21 +80,24 @@ export const ProductDetails: React.FC<Props> = ({ selectedProductId }) => {
             <ul className="ProductDetails__list">
               {comments.map(comment => (
                 <li key={comment.id} className="ProductDetails__item">
+                  <p>{comment.description}</p>
+
+                  <p>{comment.date}</p>
+
                   <button
                     type="button"
-                    className="PostDetails__remove-button button"
+                    className="ProductDetails__remove-button button"
                     onClick={() => onCommentDelete(comment.id)}
                   >
-                    X
+                    <p>delete comment</p>
                   </button>
-                  <p>{comment.description}</p>
-                  <p>{comment.date}</p>
                 </li>
               ))}
             </ul>
           )}
         </>
       </section>
+
       <section>
         <div className="ProductDetails__form">
           <NewCommentForm
@@ -110,6 +106,22 @@ export const ProductDetails: React.FC<Props> = ({ selectedProductId }) => {
           />
         </div>
       </section>
+
+      <button
+          type="button"
+          className="ProductDetails__edit-button button"
+          onClick={() => onProductDelete(selectedProductId)}
+        >
+          <p>edit product</p>
+      </button>
+      
+      <button
+          type="button"
+          className="ProductDetails__remove-button button"
+          onClick={() => onProductDelete(selectedProductId)}
+        >
+          <p>delete product</p>
+      </button>
     </div>
   );
 };

@@ -16,41 +16,51 @@ export const ProductsList: React.FC<Props> = ({
   setSelectedPProductId,
 }) => {
   const [sortedProducts, setSortedProducts] = useState<Product[]>(products);
+  const [load, setLoad] = useState('');
 
   const productsFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
     switch (event.target.value) {
       case 'name':
         setSortedProducts(products.sort((a, b) => a.name.localeCompare(b.name)));
+        setLoad(event.target.value);
         break;
       case 'count':
         setSortedProducts(products.sort((a, b) => a.count - b.count));
+        setLoad(event.target.value);
         break;
       case 'weight':
         setSortedProducts(products.sort((a, b) => a.weight.localeCompare(b.weight)));
-        break; 
+        setLoad(event.target.value);
+        break;
+      default:
+        setSortedProducts(products);
     }
   };
 
 useEffect(() => {
-
-}, [sortedProducts]);
+  setSortedProducts(sortedProducts);
+}, [load]);
 
   return (
-    <div className="products">
-      <h1>Products:</h1>
+    <div className='products'>
+      <h1 className='products__title'>Products:</h1>
 
-      <select
-        id="filter-select"
-        className="products__input"
-        onChange={productsFilter}
-      >
-        <option value="name">name</option>
-        <option value="count">count</option>
-        <option value="weight">weight</option>
-      </select>
+      
 
-      <div className="products__container">
-        <ul className="products__list">
+      <div className='products__sort'>
+        <p>Sorted by:</p>
+        <select
+          onChange={productsFilter}
+          className='products__sort-select'
+        >
+          <option value='name'>name</option>
+          <option value='count'>count</option>
+          <option value='weight'>weight</option>
+        </select>
+      </div>
+      
+      <div className='products__container'>
+        <ul className='products__list'>
           {sortedProducts.map(product => (
             <li className='products__item'
                 key={product.id}>
@@ -68,7 +78,7 @@ useEffect(() => {
 
               <button
                 className='products__buttom'
-                type="button"
+                type='button'
                 onClick={() => {
                   if (product.id === selectedProductId) {
                     setSelectedPProductId(0);

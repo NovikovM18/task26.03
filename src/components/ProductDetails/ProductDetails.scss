@@ -1,0 +1,47 @@
+.ProductDetails {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: start;
+
+  &__comments {
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: start;
+    border: 1px solid black;
+  }
+
+  &__remove-button{
+    background-color: rgb(241, 68, 68);
+  }
+
+  &__edit-button{
+    background-color: rgb(245, 243, 121);
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
