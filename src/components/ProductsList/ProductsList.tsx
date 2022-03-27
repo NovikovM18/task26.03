@@ -45,7 +45,13 @@ useEffect(() => {
     <div className='products'>
       <h1 className='products__title'>Products:</h1>
 
-      
+      {/* <button
+          type="button"
+          className="products__add-button button"
+          onClick={() => {}}
+        >
+          <p>add product</p>
+      </button> */}
 
       <div className='products__sort'>
         <p>Sorted by:</p>

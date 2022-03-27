@@ -107,13 +107,13 @@ export const ProductDetails: React.FC<Props> = ({ selectedProductId }) => {
         </div>
       </section>
 
-      <button
+      {/* <button
           type="button"
           className="ProductDetails__edit-button button"
-          onClick={() => onProductDelete(selectedProductId)}
+          onClick={() => {}}
         >
           <p>edit product</p>
-      </button>
+      </button> */}
       
       <button
           type="button"
