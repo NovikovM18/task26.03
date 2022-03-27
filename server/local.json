@@ -1,0 +1,75 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "imageUrl": "https://karlfinancialfreedom.com/wp-content/uploads/2019/09/48178300-ripe-apple-in-closeup-1.jpg",
+      "name": "apple",
+      "count": 4,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "232g"
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://fruit-time.ua/images/products/5a/banan-bebi-imp.jpeg",
+      "name": "banana",
+      "count": 13,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "230g"
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://st.depositphotos.com/1036708/3353/i/600/depositphotos_33538897-stock-photo-pumpkin.jpg",
+      "name": "garbus",
+      "count": 1,
+      "size": {
+        "width": 200,
+        "height": 200
+      },
+      "weight": "790g"
+    }
+  ],
+  "comments": [
+    {
+      "id": 3,
+      "productId": 2,
+      "description": "not good",
+      "date": "12:40"
+    },
+    {
+      "id": 4,
+      "productId": 2,
+      "description": "not norm",
+      "date": "14:50"
+    },
+    {
+      "id": 5,
+      "productId": 3,
+      "description": "best",
+      "date": "22:40"
+    },
+    {
+      "id": 9,
+      "productId": 1,
+      "description": "rtyu",
+      "date": "Mon Mar 28 2022 00:22:54 GMT+0300 (Восточная Европа, летнее время)"
+    },
+    {
+      "id": 10,
+      "productId": 3,
+      "description": "Ooooo!!!",
+      "date": "Mon Mar 28 2022 00:42:44 GMT+0300 (Восточная Европа, летнее время)"
+    },
+    {
+      "id": 11,
+      "productId": 2,
+      "description": "hghjgkhgkgh!!!!",
+      "date": "Mon Mar 28 2022 00:43:01 GMT+0300 (Восточная Европа, летнее время)"
+    }
+  ]
+}

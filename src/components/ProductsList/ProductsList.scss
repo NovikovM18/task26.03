@@ -1,0 +1,46 @@
+.products {
+  &__list {
+  margin-top: 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  }
+
+  &__input {
+  
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 88px;
+    justify-content: start;
+  }
+
+  &__item {
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    width: max-content;
+    border: 1px solid black;
+  }
+
+  &__details {
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    border: 1px solid black;
+
+    &__item {
+      width: 80px;
+    }
+  }
+
+  &__buttom {
+    width: 64px;
+    height: max;
+  }
+}
