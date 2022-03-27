@@ -1,3 +1,8 @@
+!!!
+  1. npm run server
+  2. npm start
+!!!
+
 # task26.03
 .
 Inforce frontend task
