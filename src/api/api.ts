@@ -1,7 +1,7 @@
 import { Product } from '../types/product';
 import { Comment } from '../types/comment';
 
-const BASE_URL = 'http://localhost:3033/';
+const BASE_URL = 'https://my-json-server.typicode.com/novikovm18/JSON-server/';
 
 export const request = async (url: string) => {
   const response = await fetch(url);

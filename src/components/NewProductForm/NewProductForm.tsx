@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// import './NewProductForm.scss';
+import './NewProductForm.scss';
 
 type Props = {
   onProductAdd: (
@@ -40,6 +40,9 @@ export const NewProductForm: React.FC<Props> = ({ onProductAdd }) => {
     onProductAdd(id, imageUrl, name, count, sizeWidth, sizeHeight, weight);
     clearInputs();
   };
+
+  useEffect(() => {
+  });
 
   return (
     <form className="NewProductForm" onSubmit={handleSubmit}>

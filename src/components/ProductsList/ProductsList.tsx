@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { ProductDetails } from '../ProductDetails';
 import { NewProductForm } from '../NewProductForm';
 import { addProduct } from '../../api/api';
@@ -10,14 +10,14 @@ type Props = {
   products: Product[],
   selectedProductId: number,
   setSelectedPProductId: React.Dispatch<React.SetStateAction<number>>,
-  updateProducts: () => void,
+  fetchProducts: () => void,
 };
 
 export const ProductsList: React.FC<Props> = ({
   products,
   selectedProductId,
   setSelectedPProductId,
-  updateProducts,
+  fetchProducts,
 }) => {
   const [sortedProducts, setSortedProducts] = useState<Product[]>(products);
   const [load, setLoad] = useState('');
@@ -41,11 +41,7 @@ export const ProductsList: React.FC<Props> = ({
     }
   };
 
-useEffect(() => {
-  setSortedProducts(sortedProducts);
-}, [load]);
-
-const onProductAdd = useCallback(async (
+const onProductAdd = async (
   id: number,
   imageUrl: string,
   name: string,
@@ -55,8 +51,9 @@ const onProductAdd = useCallback(async (
   weight: string
   ) => {
   await addProduct(id, imageUrl, name, count, sizeWidth, sizeHeight, weight);
-  updateProducts();
-}, []);
+  setLoad('a');
+  fetchProducts();
+};
 
   return (
     <div className='products'>
@@ -71,7 +68,7 @@ const onProductAdd = useCallback(async (
       </button>
 
       <section>
-        <div className="ProductDetails__form">
+        <div className="NewProductForm">
           <NewProductForm
             onProductAdd={onProductAdd}
           />

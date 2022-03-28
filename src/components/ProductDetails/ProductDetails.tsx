@@ -38,7 +38,7 @@ export const ProductDetails: React.FC<Props> = ({ selectedProductId }) => {
   useEffect(() => {
     setIsLoading(true);
     fetchProduct();
-  }, [selectedProductId, ]);
+  }, [selectedProductId]);
 
   const onProductDelete = async (id: number) => {
     setIsLoading(true);
