@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ProductDetails } from '../ProductDetails';
+import { NewProductForm } from '../NewProductForm';
+import { addProduct } from '../../api/api';
 import { Product } from '../../types/product';
 
 import './ProductsList.scss';
@@ -7,13 +9,15 @@ import './ProductsList.scss';
 type Props = {
   products: Product[],
   selectedProductId: number,
-  setSelectedPProductId: React.Dispatch<React.SetStateAction<number>>
+  setSelectedPProductId: React.Dispatch<React.SetStateAction<number>>,
+  updateProducts: () => void,
 };
 
 export const ProductsList: React.FC<Props> = ({
   products,
   selectedProductId,
   setSelectedPProductId,
+  updateProducts,
 }) => {
   const [sortedProducts, setSortedProducts] = useState<Product[]>(products);
   const [load, setLoad] = useState('');
@@ -41,17 +45,38 @@ useEffect(() => {
   setSortedProducts(sortedProducts);
 }, [load]);
 
+const onProductAdd = useCallback(async (
+  id: number,
+  imageUrl: string,
+  name: string,
+  count: number,
+  sizeWidth: number,
+  sizeHeight: number,
+  weight: string
+  ) => {
+  await addProduct(id, imageUrl, name, count, sizeWidth, sizeHeight, weight);
+  updateProducts();
+}, []);
+
   return (
     <div className='products'>
       <h1 className='products__title'>Products:</h1>
-
-      {/* <button
+      
+      <button
           type="button"
           className="products__add-button button"
           onClick={() => {}}
         >
           <p>add product</p>
-      </button> */}
+      </button>
+
+      <section>
+        <div className="ProductDetails__form">
+          <NewProductForm
+            onProductAdd={onProductAdd}
+          />
+        </div>
+      </section>
 
       <div className='products__sort'>
         <p>Sorted by:</p>

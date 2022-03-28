@@ -52,3 +52,28 @@ export const addComment = (
     }),
   });
 };
+
+export const addProduct = (
+  id: number,
+  imageUrl: string,
+  name: string,
+  count: number,
+  width: number,
+  height: number,
+  weight: string,
+): Promise<Response> => {
+  return fetch(`${BASE_URL}products`, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify({
+      id,
+      imageUrl,
+      name,
+      count,
+      size: {width, height},
+      weight,
+    }),
+  });
+};

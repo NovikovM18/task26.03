@@ -23,6 +23,10 @@ const App: React.FC = () => {
     }
   }, []);
 
+  const updateProducts = () => {
+    fetchProducts();
+  };
+
   useEffect(() => {
     setIsLoading(true);
     fetchProducts();
@@ -43,6 +47,7 @@ const App: React.FC = () => {
                 products={products}
                 selectedProductId={selectedProductId}
                 setSelectedPProductId={setSelectedPProductId}
+                updateProducts={updateProducts}
               />
             )}
         </div>
